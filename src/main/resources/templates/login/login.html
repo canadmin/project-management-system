@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="login.css"/>
+    <link href="../static/login.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="main">
+    <div class="pt-5">
+        <div class="text-center">
+            <h1>Login Page</h1>
+            <hr class="w-50">
+        </div>
+        <div class="login-box text-center">
+            <form>
+                <p><input type="text"  class="sing-input" placeholder="Email Address"></p>
+                <p><input type="password" class="sing-input" placeholder="password"></p>
+                <p><button class="sing-button">Submit</button></p>
+            </form>
+            <p> <h4 class="account"><a th:href="@{'/register'}">Don't have an account yet?</a></h4>
+            </p>
+
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+.main{
+    height: 100vh;
+    background-color: #ededed;
+}
+
+.left-side{
+    background-color: #ededed;
+    height: 100vh;
+}
+.sing-input{
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .2);
+    border: 0;
+    padding: 10px;
+    width: 350px;
+    color: #1f1f1f;
+    border-radius: 5px;
+}
+h1{
+    color: #6d6aab;
+}
+.sing-button{
+    border: 0;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .2);
+    background-color: #ffffff;
+    width: 100px;
+    height: 30px;
+    color: #6d6aab;
+}
+.sing-button:hover{
+    background-color: #6d6aab;
+    color: #ffffff;
+}
+.login-footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1f1f1f;
+    height: 150px;
+    color: white;
+    text-align: center;
+}
+.account{
+    cursor: pointer;
+}
+.account:hover{
+    color: #fccc46;
+}
+.login-box{
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 75px;
+}
+/*#1f1f1f -> koyu ton*/
+/*fccc46 -> sarı ton */
+/*6d6aab -> morumsu*/
+/*ededed -> acık beyaz*/
