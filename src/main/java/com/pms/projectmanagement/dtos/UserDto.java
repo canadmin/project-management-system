@@ -24,6 +24,6 @@ public class UserDto {
 
     private String roleType;
 
-    private Boolean isMailActive;
+    private Boolean isMailActive = false;
 
 }

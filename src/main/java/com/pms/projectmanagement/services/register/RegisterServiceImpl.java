@@ -4,6 +4,7 @@ import com.pms.projectmanagement.MailSenderService;
 import com.pms.projectmanagement.dtos.UserDto;
 import com.pms.projectmanagement.models.User;
 import com.pms.projectmanagement.repositories.UserRepository;
+import com.pms.projectmanagement.services.register.RegisterService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

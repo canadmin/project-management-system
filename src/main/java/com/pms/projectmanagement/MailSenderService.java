@@ -21,7 +21,7 @@ public class MailSenderService {
             message.setSubject("Verify");
             message.setText("Hello "+name.toLowerCase()+", \n"+
                     "Please Verify your email address \n"+
-                    "localhost:8080/verify/verifyAccount/"+url);
+                    "localhost:8080/verify/"+url);
             sender.send(message);
     }
 }

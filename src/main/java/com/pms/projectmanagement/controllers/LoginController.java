@@ -1,7 +1,6 @@
 package com.pms.projectmanagement.controllers;
 
 import com.pms.projectmanagement.dtos.UserDto;
-import com.pms.projectmanagement.models.User;
 import com.pms.projectmanagement.services.register.RegisterService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
