@@ -33,6 +33,7 @@ public class User {
     private String lastName;
     private String fullName;
 
+    private String userName;
     private String email;
     private String password;
 
@@ -41,4 +42,7 @@ public class User {
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp registerDate;
+
+    private String activeGuide;
+    private Boolean isMailActive;
 }
