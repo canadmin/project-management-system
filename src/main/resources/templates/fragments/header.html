@@ -1,0 +1,26 @@
+<div th:fragment="header">
+<nav class="navbar navbar-expand-lg   navbar-custom">
+   <h2>PMS</h2>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+    </ul>
+    <div class="profil-header d-inline-flex">
+        <div class="align-content-center">
+        <span th:text="${user.lastName}">User fullname</span>
+        </div>
+        <input type="hidden" th:value="${user.firstName}" id="firstname">
+        <input type="hidden" th:value="${user.lastName}" id="lastname">
+        <div id="profileImage"></div>
+    </div>
+
+    <div class="profile-options text-center close-options">
+        <p class="mt-2">Profile</p>
+        <hr>
+        <p>Settings</p>
+        <hr>
+        <p class="mb-2">Logout</p>
+    </div>
+</nav>
+</div>

@@ -2,6 +2,7 @@ package com.pms.projectmanagement.services.register;
 
 import com.pms.projectmanagement.MailSenderService;
 import com.pms.projectmanagement.dtos.UserDto;
+import com.pms.projectmanagement.enums.RoleType;
 import com.pms.projectmanagement.models.User;
 import com.pms.projectmanagement.repositories.UserRepository;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ public class RegisterServiceImpl implements RegisterService {
     saveUser.setActiveGuide(UUID.randomUUID().toString());
     mailSenderService.sendMail(saveUser.getEmail(),
             saveUser.getActiveGuide(),saveUser.getUsername());
-        saveUser.setRoleType("ADMIN");
+        saveUser.setRoleType(RoleType.USER);
         saveUser.setPassword(new BCryptPasswordEncoder().encode(saveUser.getPassword()));
     userRepository.save(saveUser);
     }

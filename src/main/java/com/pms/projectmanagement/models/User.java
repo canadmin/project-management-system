@@ -39,7 +39,8 @@ public class User {
     private String email;
     private String password;
 
-    private String roleType;
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
     /*@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "authorities",joinColumns = {@JoinColumn(name = "username",referencedColumnName = "username")}
     ,inverseJoinColumns = {@JoinColumn(name = "role",referencedColumnName = "roleName")})*/

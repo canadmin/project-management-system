@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,5 +27,7 @@ public class UserDto {
     private String roleType;
 
     private Boolean isMailActive = false;
+    private Timestamp registerDate;
+
 
 }
