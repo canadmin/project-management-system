@@ -1,5 +1,6 @@
 package com.pms.projectmanagement.models;
 
+import com.pms.projectmanagement.enums.RoleType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,11 +9,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "users")
 public class User {
 
     @Id
@@ -33,15 +35,20 @@ public class User {
     private String lastName;
     private String fullName;
 
-    private String userName;
+    private String username;
     private String email;
     private String password;
 
-    private String roleType;// RoleType -> enum
+    private String roleType;
+    /*@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "authorities",joinColumns = {@JoinColumn(name = "username",referencedColumnName = "username")}
+    ,inverseJoinColumns = {@JoinColumn(name = "role",referencedColumnName = "roleName")})*/
+//    private List<Role> roles = new ArrayList<>();
 
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp registerDate;
+
 
     private String activeGuide;
     private Boolean isMailActive;

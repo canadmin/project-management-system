@@ -4,9 +4,9 @@ import com.pms.projectmanagement.MailSenderService;
 import com.pms.projectmanagement.dtos.UserDto;
 import com.pms.projectmanagement.models.User;
 import com.pms.projectmanagement.repositories.UserRepository;
-import com.pms.projectmanagement.services.register.RegisterService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -26,7 +26,9 @@ public class RegisterServiceImpl implements RegisterService {
     saveUser.setId(UUID.randomUUID());
     saveUser.setActiveGuide(UUID.randomUUID().toString());
     mailSenderService.sendMail(saveUser.getEmail(),
-            saveUser.getActiveGuide(),saveUser.getUserName());
+            saveUser.getActiveGuide(),saveUser.getUsername());
+        saveUser.setRoleType("ADMIN");
+        saveUser.setPassword(new BCryptPasswordEncoder().encode(saveUser.getPassword()));
     userRepository.save(saveUser);
     }
 }

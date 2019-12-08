@@ -21,13 +21,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("select username as principal, password as credentials, true from user where username=?")
-                .passwordEncoder(passwordEncoder());
-
+                .usersByUsernameQuery("select username as principal, password as credentials, true from users where username=?")
+                .authoritiesByUsernameQuery("select username as principal,role_type as role from users where username=?")
+                .passwordEncoder(passwordEncoder()).rolePrefix("R_");
     }
 
     @Bean
@@ -40,7 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests().antMatchers("/login","/register","/webjars/**","/css/**"
         ,"/js/**").permitAll()
                 .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
-                .defaultSuccessUrl("/dashboard").and().logout().logoutSuccessUrl("/login");
+                .defaultSuccessUrl("/register").and().logout().logoutSuccessUrl("/login");
     }
 
 
