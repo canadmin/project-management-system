@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container-fluid" layout:fragment="content">
+    <div th:each="project: ${projects}">
     <div class="main-dashboard mt-3 pt-2">
         <div class="project-card">
             <div class="text-center">
@@ -21,9 +22,39 @@
             <div class="text-center">
                 <button class="show-button">Show Project</button>
             </div>
-
         </div>
     </div>
+    </div>
+    <div id="modal-div">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <h3 slot="header">Create New Project</h3>
+                        <hr>
+                       <form th:action="@{/createProject/{path}(path=${user.id})}"  th:object="${project}" method="post">
+                           <div class="form-group">
+                               <div class="input-group">
+                                   Project Name <input type="text" th:field="*{projectName}" class="sing-input form-control">
+                               </div>
+                               <div class="input-group mt-2">
+                                   <label>Project description </label> <textarea id="description"
+                                                                                 th:field="*{projectDescription}"
+                                                                                 class="description form-control"></textarea>
+                               </div>
+                           </div>
+                           <div class="modal-footer">
+                               <input class="sing-button" type="submit" id="close-modal" value="Create">
+                               </slot>
+                           </div>
+                       </form>
+
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
 </div>
+
 </body>
 </html>

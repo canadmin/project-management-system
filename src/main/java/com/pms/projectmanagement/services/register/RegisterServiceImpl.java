@@ -26,8 +26,8 @@ public class RegisterServiceImpl implements RegisterService {
     User saveUser = modelMapper.map(user,User.class);
     saveUser.setId(UUID.randomUUID());
     saveUser.setActiveGuide(UUID.randomUUID().toString());
-    mailSenderService.sendMail(saveUser.getEmail(),
-            saveUser.getActiveGuide(),saveUser.getUsername());
+   /* mailSenderService.sendMail(saveUser.getEmail(),
+            saveUser.getActiveGuide(),saveUser.getUsername());*/
         saveUser.setRoleType(RoleType.USER);
         saveUser.setPassword(new BCryptPasswordEncoder().encode(saveUser.getPassword()));
     userRepository.save(saveUser);

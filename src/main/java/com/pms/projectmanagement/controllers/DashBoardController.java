@@ -1,6 +1,8 @@
 package com.pms.projectmanagement.controllers;
 
+import com.pms.projectmanagement.dtos.ProjectDto;
 import com.pms.projectmanagement.dtos.UserDto;
+import com.pms.projectmanagement.models.Project;
 import com.pms.projectmanagement.services.dashboard.DashBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,7 @@ public class DashBoardController {
         System.out.println(principal.getName());
         UserDto userDto = dashBoardService.getUserInfo(principal.getName());
         model.addAttribute("user",userDto);
+        model.addAttribute("project",new ProjectDto());
         return "main/dashboard";
     }
 }

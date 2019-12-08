@@ -27,7 +27,7 @@ public class UserDto {
     private String roleType;
 
     private Boolean isMailActive = false;
-    private Timestamp registerDate;
+    private Timestamp createdDate;
 
 
 }
