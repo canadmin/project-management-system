@@ -1,10 +1,9 @@
 package com.pms.projectmanagement.models;
 
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.pms.projectmanagement.enums.RoleType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -39,5 +38,6 @@ public class User extends BaseEntity {
     private Boolean isMailActive;
 
     @OneToMany(mappedBy = "owner",cascade = {CascadeType.ALL})
+    @JsonManagedReference
     private List<Project> ownedProjects;
 }

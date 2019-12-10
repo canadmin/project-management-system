@@ -1,5 +1,6 @@
 package com.pms.projectmanagement.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,7 @@ public class BaseEntity {
     private Long version;
 
     @CreationTimestamp
-    @Column(updatable = false)
+    @Column(updatable = false,nullable = true)
     private Timestamp createdDate;
 
     public BaseEntity(Long version, Timestamp createdDate) {
