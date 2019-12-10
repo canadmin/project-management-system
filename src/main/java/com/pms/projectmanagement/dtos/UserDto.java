@@ -1,9 +1,7 @@
 package com.pms.projectmanagement.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -26,8 +24,11 @@ public class UserDto {
 
     private String roleType;
 
-    private Boolean isMailActive = false;
+    private Boolean isMailActive;
     private Timestamp createdDate;
+
+    private List<ProjectDto> ownedProjects;
+
 
 
 }

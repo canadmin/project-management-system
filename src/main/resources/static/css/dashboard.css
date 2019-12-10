@@ -1,6 +1,11 @@
 .main-dashboard{
     height: 750px;
     background-color: #f5f5f5f5;
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 10%);
+    grid-gap: 100px;
+
 }
 .project-card{
     width: 250px;
@@ -8,6 +13,8 @@
     margin-left: 15px;
     margin-top: 15px;
     background-color: chocolate;
+    position: relative;
+
 }
 .show-button{
     border: 0;
@@ -75,4 +82,33 @@
     border-radius: 5px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .2);
     border: 0;
+}
+
+.close-button{
+    border: 0;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .2);
+    background-color: #ffffff;
+    width: 100px;
+    height: 30px;
+    float: right;
+    color: #ab3a45;
+}
+.close-button:hover{
+    background-color: #ab3a45;
+    color: #ffffff;
+}
+.project-card-description{
+    height: 150px;
+}
+
+.show-project-button{
+    border: 0;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .2);
+    background-color: #ffffff;
+    width: 200px;
+    height: 50px;
+    color: #6d6aab;
+    position: absolute;
+    bottom: 0;
+    transform: translate(-50%,-50%);/*move it halfway back(x,y)*/
 }

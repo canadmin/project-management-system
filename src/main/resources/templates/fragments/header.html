@@ -3,15 +3,14 @@
    <h2>PMS</h2>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+            <button class="btn btn-info ml-4" href="#">Dashboard <span class="sr-only">(current)</span></button>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="#">Create New Project<span class="sr-only">(current)</span></a>
+            <a class="btn btn-info ml-4" href="#" id="create-new-project">Create New Project<span class="sr-only">(current)</span></a>
         </li>
     </ul>
     <div class="profil-header d-inline-flex">
         <div class="align-content-center">
-        <span th:text="${user.lastName}">User fullname</span>
         </div>
         <input type="hidden" th:value="${user.firstName}" id="firstname">
         <input type="hidden" th:value="${user.lastName}" id="lastname">

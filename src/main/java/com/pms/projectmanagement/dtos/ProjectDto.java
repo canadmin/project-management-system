@@ -1,11 +1,12 @@
 package com.pms.projectmanagement.dtos;
 
-import com.pms.projectmanagement.models.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Data
@@ -19,5 +20,8 @@ public class ProjectDto {
 
     private String projectDescription;
 
-    private User owner;
+    private UserDto owner;
+
+    private Timestamp createdDate;
+
 }

@@ -1,0 +1,19 @@
+<th:block th:fragment="content">
+    <div th:each="project: ${user.ownedProjects}">
+            <div class="project-card">
+                <div class="text-center">
+                    <span class="task-text" th:text="${project.projectName}">Project Name</span></div>
+                <div class="text-center">
+                    <span>Open task count</span></div>
+                <div class="text-center project-card-description">
+                    <span th:text="${project.projectDescription}">Description</span>
+                </div>
+                <div class="text-center">
+                    <span th:text="${project.createdDate}">Create date</span>
+                </div>
+                <div class="text-center">
+                    <button class="show-project-button">Show Project</button>
+                </div>
+            </div>
+    </div>
+</th:block>

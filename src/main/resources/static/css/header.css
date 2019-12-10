@@ -4,8 +4,8 @@
 
 
 #profileImage {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: #00a8a7;
     font-size: 35px;
@@ -20,8 +20,9 @@
     right: 20px;
     width: 250px;
     height: 160px;
+    z-index: 100;
     background-color: #ffffff;
-    margin-top: 60px;
+    margin-top: 70px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 2px 3px rgba(0, 0, 0, .2);
 
 }

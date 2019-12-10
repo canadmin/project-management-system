@@ -17,10 +17,11 @@ import java.security.Principal;
 public class DashBoardController {
 
     private final DashBoardService dashBoardService;
-
+    /**
+     * kullanıcının bilgileri ve kullanıcının oluşturduğu ve dahil olduğu projeler dönmeli
+     */
     @RequestMapping(value = "/dashboard",method = RequestMethod.GET)
     public String getDashBoard(Model model, Principal principal){
-        System.out.println(principal.getName());
         UserDto userDto = dashBoardService.getUserInfo(principal.getName());
         model.addAttribute("user",userDto);
         model.addAttribute("project",new ProjectDto());

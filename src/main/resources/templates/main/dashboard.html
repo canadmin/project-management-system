@@ -10,27 +10,18 @@
 </head>
 <body>
 <div class="container-fluid" layout:fragment="content">
-    <div th:each="project: ${projects}">
     <div class="main-dashboard mt-3 pt-2">
-        <div class="project-card">
-            <div class="text-center">
-                <span class="task-text">Project Name</span></div>
-            <div class="text-center">
-                <span>Open task count</span></div>
-            <div class="text-center">
-                <span>Description</span></div>
-            <div class="text-center">
-                <button class="show-button">Show Project</button>
-            </div>
-        </div>
+        <div th:replace="~{main/projectCard :: content}"></div>
+
     </div>
-    </div>
-    <div id="modal-div">
+
+    <div id="modal-div" class="close-modal">
         <transition name="modal">
             <div class="modal-mask">
                 <div class="modal-wrapper">
                     <div class="modal-container">
-                        <h3 slot="header">Create New Project</h3>
+                        <p><b>Create New Project</b>
+                        <button class="ml-5 close-button" id="close-dashboard-modal">Close</button></p>
                         <hr>
                        <form th:action="@{/createProject/{path}(path=${user.id})}"  th:object="${project}" method="post">
                            <div class="form-group">
