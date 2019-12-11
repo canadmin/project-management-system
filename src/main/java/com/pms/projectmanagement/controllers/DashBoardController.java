@@ -7,17 +7,20 @@ import com.pms.projectmanagement.services.dashboard.DashBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
+@SessionAttributes("user")
 public class DashBoardController {
 
     private final DashBoardService dashBoardService;
-    /**
+        /**
      * kullanıcının bilgileri ve kullanıcının oluşturduğu ve dahil olduğu projeler dönmeli
      */
     @RequestMapping(value = "/dashboard",method = RequestMethod.GET)
@@ -25,6 +28,6 @@ public class DashBoardController {
         UserDto userDto = dashBoardService.getUserInfo(principal.getName());
         model.addAttribute("user",userDto);
         model.addAttribute("project",new ProjectDto());
-        return "main/dashboard";
+        return "dashboard/dashboard";
     }
 }

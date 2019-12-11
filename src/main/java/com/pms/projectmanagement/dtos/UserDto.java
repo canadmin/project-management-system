@@ -1,6 +1,8 @@
 package com.pms.projectmanagement.dtos;
 
 
+import com.pms.projectmanagement.models.Project;
+import com.pms.projectmanagement.models.Task;
 import lombok.*;
 
 import java.sql.Timestamp;
@@ -29,6 +31,9 @@ public class UserDto {
 
     private List<ProjectDto> ownedProjects;
 
+    private List<Project> projects;
 
+    private List<Task> signedTasks;
 
+    private List<Task> openedTasks;
 }

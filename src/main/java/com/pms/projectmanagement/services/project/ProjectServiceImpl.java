@@ -29,4 +29,10 @@ public class ProjectServiceImpl implements ProjectService {
         Project createdProject = projectRepository.save(project);
         return modelMapper.map(createdProject,ProjectDto.class);
     }
+
+    @Override
+    public ProjectDto getProjectInfo(UUID projectId) {
+        Optional<Project> project = projectRepository.findById(projectId);
+        return modelMapper.map(project.get(),ProjectDto.class);
+    }
 }

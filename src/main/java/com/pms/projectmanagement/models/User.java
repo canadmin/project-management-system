@@ -1,19 +1,11 @@
 package com.pms.projectmanagement.models;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.pms.projectmanagement.enums.RoleType;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Data
@@ -40,4 +32,14 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "owner",cascade = {CascadeType.ALL})
     @JsonManagedReference
     private List<Project> ownedProjects;
+
+    @ManyToMany(mappedBy = "developers")
+    private List<Project> projects;
+
+    @OneToMany(mappedBy = "signedUser",cascade = CascadeType.ALL)
+    private List<Task> signedTasks;
+
+    @OneToMany(mappedBy = "openedUser",cascade = CascadeType.ALL)
+    private List<Task> openedTasks;
+
 }

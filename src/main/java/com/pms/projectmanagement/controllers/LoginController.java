@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping("/")
@@ -27,7 +28,7 @@ public class LoginController  {
     @RequestMapping(value = {"/register"} ,method = RequestMethod.POST)
     public String signUp(@ModelAttribute("user") UserDto userDto, Model model){
         registerService.register(userDto);
-        model.addAttribute("user",new UserDto());
+        model.addAttribute("user",userDto);
         model.addAttribute("showMessage",true);
         return "login/register";
     }

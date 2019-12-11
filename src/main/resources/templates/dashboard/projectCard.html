@@ -2,17 +2,19 @@
     <div th:each="project: ${user.ownedProjects}">
             <div class="project-card">
                 <div class="text-center">
-                    <span class="task-text" th:text="${project.projectName}">Project Name</span></div>
+                    Project name :<span class="task-text" th:text="${project.projectName}">Project Name</span></div>
                 <div class="text-center">
-                    <span>Open task count</span></div>
+                    <span>Open task count: 12</span></div>
                 <div class="text-center project-card-description">
-                    <span th:text="${project.projectDescription}">Description</span>
+                   Project Description :<span th:text="${project.projectDescription}">Description</span>
                 </div>
                 <div class="text-center">
                     <span th:text="${project.createdDate}">Create date</span>
                 </div>
                 <div class="text-center">
-                    <button class="show-project-button">Show Project</button>
+                    <form th:action="@{/showProject/{path}(path=${project.id})}" method="get">
+                        <input type="submit" class="show-project-button" value="Show Project">
+                    </form>
                 </div>
             </div>
     </div>

@@ -18,14 +18,19 @@ public class Project extends BaseEntity{
 
     private String projectDescription;
 
-  /*  @ManyToMany
-    private List<User> developer;*/
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "project_developer",joinColumns = {@JoinColumn(name = "project_id")},
+    inverseJoinColumns = {@JoinColumn(name = "developer_id")})
+    private List<User> developers;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "owner" )
     private User owner;
 
-   // private List<Task> tasks;
+    @OneToMany(mappedBy = "project",cascade = CascadeType.ALL)
+    private List<Task> tasks;
+
+    private String githubRepoAddress;
 
 
 }

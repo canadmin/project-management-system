@@ -1,9 +1,9 @@
 <div th:fragment="header">
 <nav class="navbar navbar-expand-lg   navbar-custom">
-   <h2>PMS</h2>
+   <h1 class="text-white">PMS</h1>
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <button class="btn btn-info ml-4" href="#">Dashboard <span class="sr-only">(current)</span></button>
+            <a th:href="@{/dashboard}" class="btn btn-info ml-4" >Dashboard <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
             <a class="btn btn-info ml-4" href="#" id="create-new-project">Create New Project<span class="sr-only">(current)</span></a>

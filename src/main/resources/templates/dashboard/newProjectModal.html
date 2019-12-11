@@ -1,0 +1,32 @@
+<th:block th:fragment="content">
+
+<div id="modal-div" class="close-modal">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+                    <p><b>Create New Project</b>
+                        <button class="ml-5 close-button" id="close-dashboard-modal">Close</button></p>
+                    <hr>
+                    <form th:action="@{/createProject/{path}(path=${user.id})}"  th:object="${project}" method="post">
+                        <div class="form-group">
+                            <div class="input-group">
+                                Project Name <input type="text" th:field="*{projectName}" class="sing-input form-control">
+                            </div>
+                            <div class="input-group mt-2">
+                                <label>Project description </label>
+                                <textarea id="description" th:field="*{projectDescription}" class="description form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input class="sing-button" type="submit" id="close-modal" value="Create">
+                            </slot>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </transition>
+</div>
+</th:block>

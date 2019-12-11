@@ -24,8 +24,4 @@ $(document).ready(function () {
     $('#close-dashboard-modal').click(function () {
         $("#modal-div").hide();
     });
-
-
-
-
 });

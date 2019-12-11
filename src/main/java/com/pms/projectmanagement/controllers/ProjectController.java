@@ -5,12 +5,9 @@ import com.pms.projectmanagement.dtos.UserDto;
 import com.pms.projectmanagement.models.Project;
 import com.pms.projectmanagement.services.project.ProjectService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -20,12 +17,23 @@ public class ProjectController {
 
     private final ProjectService projectService;
 
-    @RequestMapping(value = "/createProject/{userId}")
+    @RequestMapping(value = "/createProject/{userId}", method = RequestMethod.POST)
     public String createProject(@ModelAttribute("project") ProjectDto projectDto,
                                 Model model,
                                 @PathVariable UUID userId,
-                                @ModelAttribute("user") UserDto userDto){
+                                @SessionAttribute("user") UserDto userDto){
     projectService.createProject(projectDto,userId);
         return "redirect:/dashboard";
+    }
+
+    @RequestMapping(value = "/showProject/{projectId}", method = RequestMethod.GET)
+    public String showProject(Model model,
+                              @PathVariable UUID projectId,
+                              @SessionAttribute("user")UserDto userDto){
+
+        ProjectDto projectDto = projectService.getProjectInfo(projectId);
+        model.addAttribute("projectInfo",projectDto);
+        model.addAttribute("user",userDto);
+        return "project/project";
     }
 }
