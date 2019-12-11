@@ -42,4 +42,8 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "openedUser",cascade = CascadeType.ALL)
     private List<Task> openedTasks;
 
+    @OneToMany(mappedBy = "signedUser")
+    private List<TaskComment> taskComments;
+
+
 }

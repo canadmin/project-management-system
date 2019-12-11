@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<th:block th:fragment="content" >
+    <th:block th:if="${not #lists.isEmpty(projectInfo.tasks)}"   th:each="task : ${projectInfo.tasks}">
+    <div  class="task" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${task.taskTitle}" >impoort register unit testmpoort register unit test </h5>
+            <h6 class="card-subtitle mb-2 text-muted" th:text="'#' + ${task.taskNumber}">#33</h6>
+            <p class="card-text" th:text="${task.openedUser.username}" >Opened by : canadmin</p>
+            <p class="card-text"   th:text=" ${task.signedUser !=null}? 'signed developer : ${task.signedUser.username}':'signed developer : none'">Signed by : yusufalicezik</p>
+            <p class="card-text" th:text="${task.dueDate}">due date : 01/01/2020</p>
+            <a href="#" class="card-link">Show task</a>
+        </div>
+    </div>
+    </th:block>
+</th:block>

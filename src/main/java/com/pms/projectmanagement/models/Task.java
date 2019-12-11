@@ -4,9 +4,11 @@ import com.pms.projectmanagement.enums.TaskStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,12 +24,21 @@ public class Task extends BaseEntity{
     @ManyToOne(cascade = CascadeType.PERSIST)
     private User openedUser;
 
-    private Timestamp dueDate;
-
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Project project;
 
+    @Enumerated(value = EnumType.STRING)
     private TaskStatus taskStatus;
 
+    @OneToMany(mappedBy = "task")
+    private List<TaskComment> taskComments;
+
     private boolean isSigned;
+
+    private String taskDescription;
+    private String taskTitle;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dueDate;
+
 }

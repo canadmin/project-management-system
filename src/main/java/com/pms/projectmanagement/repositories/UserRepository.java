@@ -10,4 +10,6 @@ public interface UserRepository extends CrudRepository<User, UUID> {
     User findByActiveGuide(String activeGuide);
 
     User findByUsername(String username);
+
+
 }

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -16,19 +17,15 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProjectDto {
+
     private UUID id;
-
     private String projectName;
-
     private String projectDescription;
-
     private UserDto owner;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Timestamp createdDate;
-
     private String githubRepoAddress;
-
     private List<Task> tasks;
-
     private List<User> developers;
 }

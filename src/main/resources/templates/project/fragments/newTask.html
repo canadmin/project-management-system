@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<th:block th:fragment="content">
+    <div id="modal-div" class="">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <p><b>Create New Task in <span th:text="${projectInfo.projectName}"></span></b>
+                            <button class="ml-5 close-button" id="close-dashboard-modal">Close</button>
+                        </p>
+                        <hr>
+                        <form th:action="@{/task/createTask/{path}(path=${projectInfo.id})}" th:object="${task}"
+                              method="post">
+                            <div class="form-group">
+                                <div class="">
+                                    Task Title</br>
+                                    <input type="text"  th:field="*{taskTitle}" class="modal-input ">
+                                </div>
+                                <div class=" mt-2">
+                                    Task Description <br>
+                                    <textarea class="modal-description " th:field="*{taskDescription}"></textarea>
+                                </div>
+                                <span class="">Signed Developer</span><br>
 
-</body>
-</html>
+                                <div class="dropdown">
+                                    <div class="select">
+                                        <span>Select Developer</span>
+                                        <i class="fa fa-chevron-left"></i>
+                                    </div>
+                                    <input type="hidden" th:name="username">
+                                    <ul class="dropdown-menu">
+                                        <li id="male">Can Yardımcı</li>
+                                        <li id="female">Yusuf Ali Çezik</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                   Due date</br>
+                                    <input type="date" th:field="*{dueDate}"  class="datepicker"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input class="sing-button" type="submit" id="close-modal" value="Create">
+                                </slot>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+</th:block>

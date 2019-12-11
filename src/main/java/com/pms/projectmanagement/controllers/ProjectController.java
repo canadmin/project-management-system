@@ -1,8 +1,10 @@
 package com.pms.projectmanagement.controllers;
 
 import com.pms.projectmanagement.dtos.ProjectDto;
+import com.pms.projectmanagement.dtos.TaskDto;
 import com.pms.projectmanagement.dtos.UserDto;
 import com.pms.projectmanagement.models.Project;
+import com.pms.projectmanagement.models.Task;
 import com.pms.projectmanagement.services.project.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
+@SessionAttributes({"projectInfo","user"})
 public class ProjectController {
 
     private final ProjectService projectService;
@@ -34,6 +37,8 @@ public class ProjectController {
         ProjectDto projectDto = projectService.getProjectInfo(projectId);
         model.addAttribute("projectInfo",projectDto);
         model.addAttribute("user",userDto);
+        model.addAttribute("task",new TaskDto());
         return "project/project";
     }
+
 }
