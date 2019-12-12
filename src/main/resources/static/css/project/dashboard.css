@@ -159,3 +159,9 @@ span.choose {
     background-color: #e2e2e2
 }
 
+.dropdown-sort{
+    width: 250px;
+}
+.dropdown-toggle{
+    width: 250px;
+}

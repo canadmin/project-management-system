@@ -25,8 +25,23 @@
             </div>
             <div class="mt-2 text-center">
                 <input type="text" class="sing-input" placeholder="Search by task number">
-                <button class="">Sorted task by status</button>
-                <button>Sorted task by opened date</button>
+                <div class="dropdown dropdown-sort">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        sort by status  :
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ASC</a></li>
+                        <li><a href="#">DESC</a></li>
+                    </ul>
+                </div>                <div class="dropdown dropdown-sort">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        sort by date :
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">ASC</a></li>
+                        <li><a href="#">DESC</a></li>
+                    </ul>
+                </div>
                 <button id="create-new-task">Create New Task</button>
             </div>
             <div class="task-grid text-center">

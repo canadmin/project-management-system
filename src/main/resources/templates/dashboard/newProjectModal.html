@@ -9,12 +9,12 @@
                         <button class="ml-5 close-button" id="close-dashboard-modal">Close</button></p>
                     <hr>
                     <form th:action="@{/createProject/{path}(path=${user.id})}"  th:object="${project}" method="post">
-                        <div class="form-group">
-                            <div class="input-group">
-                                Project Name <input type="text" th:field="*{projectName}" class="sing-input form-control">
+                        <div class="form-group new-project-design ">
+                            <div class="">
+                                Project Name<br/> <input type="text" th:field="*{projectName}" class="sing-input form-control">
                             </div>
-                            <div class="input-group mt-2">
-                                <label>Project description </label>
+                            <div class=" mt-2 ">
+                                <label>Project description </label><br/>
                                 <textarea id="description" th:field="*{projectDescription}" class="description form-control"></textarea>
                             </div>
                         </div>

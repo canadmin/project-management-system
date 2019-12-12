@@ -4,7 +4,7 @@
                 <div class="text-center">
                     Project name :<span class="task-text" th:text="${project.projectName}">Project Name</span></div>
                 <div class="text-center">
-                    <span>Open task count: 12</span></div>
+                    <span th:text="'Open task count : '+${#lists.size(project.tasks)}">: 12</span></div>
                 <div class="text-center project-card-description">
                    Project Description :<span th:text="${project.projectDescription}">Description</span>
                 </div>
