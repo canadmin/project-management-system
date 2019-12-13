@@ -19,7 +19,6 @@ $(document).ready(function () {
     });
     $('#create-new-project').click(function () {
         $("#modal-div").removeClass("close-modal");
-       $("#modal-div").show();
     });
     $('#close-dashboard-modal').click(function () {
         $("#modal-div").hide();

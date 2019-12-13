@@ -20,4 +20,11 @@ $(document).ready(function () {
             msg = '<span class="msg">Hidden input value: ';
         $('.msg').html(msg + input + '</span>');
     });
+
+    $('#create-new-task').click(function () {
+        $("#modal-div").removeClass("close-modal");
+    });
+    $('#close-dashboard-modal').click(function () {
+        $("#modal-div").hide();
+    });
 });
