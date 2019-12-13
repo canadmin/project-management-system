@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="content">
+<div class=" text-center filter-task">
+    <input type="text" class="filter-search-input" placeholder="Search by task number">
+    <div class="dropdown dropdown-sort ">
+        <button class=" filter-button dropdown-toggle" type="button" data-toggle="dropdown">
+            Task Status:
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Opened</a></li>
+            <li><a href="#">Critical</a></li>
+            <li><a href="#">Closed</a></li>
+        </ul>
+    </div>
+    <div class="dropdown dropdown-sort ">
+        <button class="filter-button dropdown-toggle" type="button" data-toggle="dropdown">
+            sort by :
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Date ASC</a></li>
+            <li><a href="#">Date DESC</a></li>
+        </ul>
+    </div>
+    <button id="create-new-task" class="float-right create-new-task-button mr-4">Create New Task</button>
+</div>
+<div class="task-grid text-center">
+    <div th:replace="~{project/fragments/taskCard :: content}"></div>
+</div>
+</div>
+</body>
+</html>

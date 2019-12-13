@@ -12,47 +12,38 @@
 <body>
 <div class="container-fluid" layout:fragment="content">
     <div class="project-dashboard  mt-3 ">
-
         <div class="tab-content ">
             <div class=" tab-button-div">
-                <div class="btn-group">
-                    <button class="tab-button">Project Dashboard</button>
-                    <button class="tab-button">Wiki</button>
-                    <button class="tab-button">Developer</button>
-                    <button class="tab-button">Settings</button>
+                <div class="btn-group text-center">
+                    <a th:href="@{/showProject/{path}/{tabName}(path=${projectInfo.id},tabName='dashboard')}"
+                       th:class="${activeTab}=='dashboard'? 'tab-button-active' : 'tab-button'">Project Dashboard</a>
+                    <a th:href="@{/showProject/{path}/{tabName}(path=${projectInfo.id},tabName='wiki')}"
+                       th:class="${activeTab}=='wiki'? 'tab-button-active' : 'tab-button'">Wiki</a>
+                    <a th:href="@{/showProject/{path}/{tabName}(path=${projectInfo.id},tabName='developer')}"
+                       th:class="${activeTab}=='developer'? 'tab-button-active' : 'tab-button'">Developer</a>
+                    <a th:href="@{/showProject/{path}/{tabName}(path=${projectInfo.id},tabName='settings')}"
+                       th:class="${activeTab}=='settings'? 'tab-button-active' : 'tab-button'">Settings</a>
                 </div>
                 <div class=" project-name">Impoort api</div>
             </div>
-            <div class=" text-center filter-task">
-                <input type="text" class="filter-search-input" placeholder="Search by task number">
-                <div class="dropdown dropdown-sort ">
-                    <button class=" filter-button dropdown-toggle" type="button" data-toggle="dropdown">
-                        Task Status:
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Opened</a></li>
-                        <li><a href="#">Critical</a></li>
-                        <li><a href="#">Closed</a></li>
-                    </ul>
+            <div th:switch="${activeTab}">
+                <div th:case="'dashboard'">
+                    <div  th:replace="~{project/dashboard/dashboard :: content}"></div>
                 </div>
-                <div class="dropdown dropdown-sort ">
-                    <button class="filter-button dropdown-toggle" type="button" data-toggle="dropdown">
-                        sort by :
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Date ASC</a></li>
-                        <li><a href="#">Date DESC</a></li>
-                    </ul>
+                <div th:case="'wiki'">
+                    <div th:replace="~{project/wiki/projectwiki :: content}"></div>
                 </div>
-                <button id="create-new-task" class="float-right create-new-task-button mr-4">Create New Task</button>
+                <div th:case="'developer'">
+                    <div th:replace="~{project/developer/developer :: content}"></div>
+                </div>
+                <div th:case="'settings'">
+                    <div th:replace="~{project/projectsettings/projectsettings :: content}"></div>
+                </div>
             </div>
-            <div class="task-grid text-center">
-                <div th:replace="~{project/fragments/taskCard :: content}"></div>
-            </div>
+        <div th:replace="~{project/fragments/newTask :: content}">
         </div>
-
     </div>
-    <div th:replace="~{project/fragments/newTask :: content}"></div>
+
 
 </div>
 

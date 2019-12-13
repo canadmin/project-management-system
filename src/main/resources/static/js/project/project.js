@@ -22,9 +22,11 @@ $(document).ready(function () {
     });
 
     $('#create-new-task').click(function () {
-        $("#modal-div").removeClass("close-modal");
+        $("#modal-div-task").removeClass("close-modal");
+        $("#modal-div-task").show();
+
     });
     $('#close-dashboard-modal').click(function () {
-        $("#modal-div").hide();
+        $("#modal-div-task").hide();
     });
 });
