@@ -20,6 +20,6 @@ public class UserServiceESImpl implements UserServiceES {
 
     @Override
     public List<UserES> findAllByUsername(String username) {
-        return userRepository.findAllByUserName(username);
+        return userRepository.findAllByUsernameContaining(username);
     }
 }

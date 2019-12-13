@@ -36,7 +36,7 @@ public class RegisterServiceImpl implements RegisterService {
         saveUser.setPassword(new BCryptPasswordEncoder().encode(saveUser.getPassword()));
         UserES savedUserES =userServiceES.createNewUser(UserES.builder()
                 .id(saveUser.getId().toString())
-                .userName(saveUser.getUsername())
+                .username(saveUser.getUsername())
                 .build());
         System.out.println("user es = " + savedUserES);
         userRepository.save(saveUser);

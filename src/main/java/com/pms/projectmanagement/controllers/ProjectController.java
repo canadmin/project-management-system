@@ -3,12 +3,15 @@ package com.pms.projectmanagement.controllers;
 import com.pms.projectmanagement.dtos.ProjectDto;
 import com.pms.projectmanagement.dtos.TaskDto;
 import com.pms.projectmanagement.dtos.UserDto;
+import com.pms.projectmanagement.elasticsearch.model.UserES;
+import com.pms.projectmanagement.elasticsearch.service.UserServiceES;
 import com.pms.projectmanagement.services.project.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -17,6 +20,7 @@ import java.util.UUID;
 public class ProjectController {
 
     private final ProjectService projectService;
+    private final UserServiceES userServiceES;
 
     @RequestMapping(value = "/createProject/{userId}", method = RequestMethod.POST)
     public String createProject(@ModelAttribute("project") ProjectDto projectDto,
@@ -51,5 +55,12 @@ public class ProjectController {
         model.addAttribute("task",new TaskDto());
         model.addAttribute("activeTab",tabName);
         return "project/project";
+    }
+
+    @RequestMapping(value = "/getAllDeveloper/{username}",method = RequestMethod.GET)
+    public String searchDeveloper(@PathVariable String username,Model model){
+        List<UserES> developers = userServiceES.findAllByUsername(username);
+        model.addAttribute("developers",developers);
+        return "project/developer/fragments/developerlist :: developerList";
     }
 }

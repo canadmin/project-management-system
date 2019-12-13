@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
 <th:block th:fragment="content">
     <div id="modal-div-task" class="">
@@ -11,105 +11,19 @@
                             <button class="ml-5 close-button" id="close-dashboard-modal">Close</button>
                         </p>
                         <hr>
-                        <form th:action="@{/task/createTask/{path}(path=${projectInfo.id})}" th:object="${task}"
-                              method="post">
-                            <div class="form-group">
-                                <div class="">
-                                     Username
-                                    <input type="text"  th:field="*{taskTitle}" class="modal-input pl-1" placeholder="type username">
-                                </div>
-                                <div class="developer-search-result">
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                    <div class="dsr-single">
-                                        <div class="username">
-                                            <span>canadmin</span>
-                                        </div>
-                                        <div class="user-image">
-                                        </div>
-                                        <div class="button-div">
-                                            <a class="btn btn-primary" href="#">Add to project</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <div class="modal-footer">
-                                <input class="sing-button" type="submit" id="close-modal" value="Create">
-                                </slot>
+                        <div class="form-group">
+                            <div class="">
+                                Username
+                                <input type="text" id="search-dev-input" class="modal-input pl-1"
+                                       placeholder="type username">
                             </div>
-                        </form>
+                            <div class="developer-search-result">
 
+                                <div th:replace="~{project/developer/fragments/developerlist :: developerList}">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
         </transition>
     </div>
 </th:block>

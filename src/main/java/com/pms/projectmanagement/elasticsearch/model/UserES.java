@@ -19,6 +19,6 @@ public class UserES {
 
     @Id
     private String id;
-    private String userName;
+    private String username;
 
 }

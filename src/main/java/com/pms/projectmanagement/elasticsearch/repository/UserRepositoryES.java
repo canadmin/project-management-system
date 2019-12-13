@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface UserRepositoryES extends ElasticsearchRepository<UserES,String> {
 
-    List<UserES> findAllByUserName(String id);
+    List<UserES> findAllByUsernameContaining(String id);
 
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="developerList">
+
+        <th:block th:each="developer : ${developers}">
+        <div class="dsr-single">
+            <div class="username">
+                <span th:text="${developer.username}">canadmin</span>
+            </div>
+            <div class="user-image">
+            </div>
+            <div class="button-div">
+                <a class="btn btn-primary" href="#">Add to project</a>
+            </div>
+        </div>
+        </th:block>
+</th:block>
+
+</body>
+</html>
