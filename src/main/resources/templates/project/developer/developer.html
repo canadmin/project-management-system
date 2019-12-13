@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+>
 <body>
 <div th:fragment="content">
     pms project developer
+    <div th:replace="~{project/developer/fragments/newDeveloper :: content}"></div>
 </div>
 </body>
 </html>

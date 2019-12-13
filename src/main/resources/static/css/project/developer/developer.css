@@ -1,0 +1,35 @@
+.developer-search-result{
+    width: 530px;
+    height: 450px;
+    overflow-y: auto;
+    margin-top: 20px;
+    background-color: #f6f6f6;
+    padding: 10px;
+}
+.dsr-single{
+    display:flex;
+    height: 75px;
+
+}
+.user-image{
+    border-radius: 50%;
+    background-color: #1f1f1f;
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+}
+
+.username{
+    vertical-align: middle;
+    padding: 11px 0;
+
+}
+.button-div{
+    vertical-align: middle;
+    padding: 9px 0;
+    margin-left: 100px;
+}
+
+.custom-hr{
+    background-color: #1f1f1f;
+}
