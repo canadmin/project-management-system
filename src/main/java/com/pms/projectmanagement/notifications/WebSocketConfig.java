@@ -1,6 +1,5 @@
 package com.pms.projectmanagement.notifications;
 
-import com.pms.projectmanagement.notifications.notificationService.HttpSessionIdHandshakeInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
