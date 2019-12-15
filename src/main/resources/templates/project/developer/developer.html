@@ -1,9 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
+
 <div th:fragment="content">
-    pms project developer
+    <div class="filter-task">
+        <input class="filter-search-input" placeholder="search developer">
+        <div class="new-member float-right mr-3">
+            <button class="create-new-task-button" id="modal-member">Invite Developer</button>
+        </div>
+    </div>
+    <div class="developer-tab">
+        <th:block th:each="developer : ${projectInfo.developers}">
+        <div class="task" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${developer.firstName}">Can Yardımcı</h5>
+                <h6 class="card-subtitle mb-2 text-muted" th:text="${developer.username}">canadmin</h6>
+                <p class="card-text">signed task count : 24</p>
+                <a href="#" class="card-link">Show Activity</a>
+            </div>
+        </div>
+        </th:block>
+    </div>
     <div th:replace="~{project/developer/fragments/newDeveloper :: content}"></div>
 </div>
 </body>

@@ -63,4 +63,6 @@ public class ProjectController {
         model.addAttribute("developers",developers);
         return "project/developer/fragments/developerlist :: developerList";
     }
+
+
 }

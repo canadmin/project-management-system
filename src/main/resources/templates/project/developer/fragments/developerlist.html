@@ -11,7 +11,11 @@
             <div class="user-image">
             </div>
             <div class="button-div">
-                <a class="btn btn-primary" href="#">Add to project</a>
+                <form th:action="@{/inviteDeveloper}" method="post">
+                    <input type="hidden" th:name="userId" th:value="${developer.id}">
+<!--                    <a class="btn btn-primary" th:href="@{/inviteDeveloper/{username}(username=${developer.username})}">Invite</a>-->
+                    <input type="submit" class="btn btn-primary">
+                </form>
             </div>
         </div>
         </th:block>

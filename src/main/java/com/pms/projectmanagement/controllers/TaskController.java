@@ -31,6 +31,8 @@ public class TaskController {
         ProjectDto newProjectDto = projectService.getProjectInfo(projectDto.getId());
         model.addAttribute("task",new TaskDto());
         model.addAttribute("projectInfo",newProjectDto);
+        model.addAttribute("activeTab","dashboard");
+
         return "project/project";
 
     }

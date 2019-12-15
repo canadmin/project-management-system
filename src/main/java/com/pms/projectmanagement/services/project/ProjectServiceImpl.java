@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -24,8 +26,10 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectDto createProject(ProjectDto projectDto, UUID ownerId) {
         Optional<User>  user = userRepository.findById(ownerId);
         Project project = modelMapper.map(projectDto,Project.class);
-
+        List<User> developers = new ArrayList<>();
+        developers.add(user.get());
         project.setOwner(user.get());
+        project.setDevelopers(developers);
         Project createdProject = projectRepository.save(project);
         return modelMapper.map(createdProject,ProjectDto.class);
     }

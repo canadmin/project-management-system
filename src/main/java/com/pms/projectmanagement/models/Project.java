@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Project extends BaseEntity{
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "project_developer",joinColumns = {@JoinColumn(name = "project_id")},
     inverseJoinColumns = {@JoinColumn(name = "developer_id")})
-    private List<User> developers;
+    private List<User> developers = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "owner" )
@@ -31,6 +32,10 @@ public class Project extends BaseEntity{
     private List<Task> tasks;
 
     private String githubRepoAddress;
-
+//
+//    public void addDeveloper(User user){
+//        developers.add(user);
+//        user.getProjects().add(this);
+//    }
 
 }

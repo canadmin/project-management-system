@@ -5,6 +5,7 @@ import com.pms.projectmanagement.enums.RoleType;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,8 +35,8 @@ public class User extends BaseEntity {
     @JsonManagedReference
     private List<Project> ownedProjects;
 
-    @ManyToMany(mappedBy = "developers")
-    private List<Project> projects;
+    @ManyToMany(mappedBy = "developers",cascade = CascadeType.ALL)
+    private List<Project> projects = new ArrayList<>();
 
     @OneToMany(mappedBy = "signedUser",cascade = CascadeType.ALL)
     private List<Task> signedTasks;
