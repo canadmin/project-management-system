@@ -28,6 +28,10 @@ $(document).ready(function () {
         $(".notificaions").hide();
 
     });
+    $(window).click(function (e) {
+        $(".profile-options").hide();
+
+    });
     $('#create-new-project').click(function () {
         $("#modal-div").removeClass("close-modal");
        $("#modal-div").show();
@@ -74,4 +78,9 @@ function disconnect() {
 
 function showGreeting(message) {
     $(".test").append("<p>" + message + "</p>");
+    $('#notification-alert').removeClass('close-modal');
+    $("#notification-add").empty().append("<p>" + message + "</p>");
+    setTimeout(function() {
+        $('#notification-alert').addClass('close-modal');
+    }, 3000);
 }
