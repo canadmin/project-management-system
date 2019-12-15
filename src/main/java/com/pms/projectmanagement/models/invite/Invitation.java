@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Invite extends BaseEntity {
+public class Invitation extends BaseEntity {
 
     private String invitedToProjectId;
 
