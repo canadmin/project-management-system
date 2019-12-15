@@ -1,5 +1,7 @@
-package com.pms.projectmanagement.controllers.ws;
+package com.pms.projectmanagement.notifications;
 
+import com.pms.projectmanagement.notifications.notificationService.HttpSessionIdHandshakeInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
@@ -18,6 +20,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/notificationSocket").withSockJS();
+        registry.addEndpoint("/notificationSocket").withSockJS().setInterceptors(httpSessionIdHandshakeInterceptor());
+    }
+
+    @Bean
+    public HttpSessionIdHandshakeInterceptor httpSessionIdHandshakeInterceptor() {
+        return new HttpSessionIdHandshakeInterceptor();
     }
 }
