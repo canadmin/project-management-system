@@ -7,6 +7,9 @@ $(document).ready(function () {
     if($('.navbar-custom').is(':visible')){
         connect()
     }
+    $("#logout").click(function () {
+        disconnect();
+    })
     $(".profil-header").click(function (event) {
         var isOpen = $(".profile-options").hasClass("close-options");
         if(isOpen){
@@ -62,7 +65,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/user/notification/to/', function (notification) {
-            showGreeting(JSON.parse(notification.body).notificationMessage);
+            showGreeting(JSON.parse(notification.body));
         });
     });
 }
@@ -77,10 +80,15 @@ function disconnect() {
 
 
 function showGreeting(message) {
-    $(".test").append("<p>" + message + "</p>");
     $('#notification-alert').removeClass('close-modal');
-    $("#notification-add").empty().append("<p>" + message + "</p>");
+    if (message.notificationType === 'INVITE'){
+        $(".test").append("<p> </p><input type='submit' value=' + "+message.notificationMessage+" + '/> </p>");
+    }else{
+        $(".test").append("<p>" + message.notificationMessage + "</p>");
+    }
     setTimeout(function() {
-        $('#notification-alert').addClass('close-modal');
+        $("#notification-add").empty();
+        $("#notification-add").append("<p>" + message.notificationMessage + "</p>");
+        $('#notification-alert').addClass('close-modal')
     }, 3000);
 }

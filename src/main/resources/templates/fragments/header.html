@@ -25,12 +25,15 @@
         <hr>
         <p>Settings</p>
         <hr>
-        <p class="mb-2"> <a th:href="@{/logout}">Logout</a></p>
+        <p class="mb-2"> <a th:href="@{/logout}" id="logout">Logout</a></p>
     </div>
 
     <div class="notificaions text-center close-options">
-        <div class="test">
-        </div>
+        <form th:action="@{/showInvitation}" method="get">
+            <div class="test">
+            </div>
+        </form>
+
     </div>
 </nav>
 <div id="notification-alert" class="notificaion-alert alert-info close-modal">

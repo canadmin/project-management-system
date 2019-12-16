@@ -33,7 +33,9 @@ public class RegisterServiceImpl implements RegisterService {
    /* mailSenderService.sendMail(saveUser.getEmail(),
             saveUser.getActiveGuide(),saveUser.getUsername());*/
         saveUser.setRoleType(RoleType.USER);
+        saveUser.setIsMailActive(false);
         saveUser.setPassword(new BCryptPasswordEncoder().encode(saveUser.getPassword()));
+        saveUser.setFullName(saveUser.getFirstName()+ " "+ saveUser.getLastName());
         UserES savedUserES =userServiceES.createNewUser(UserES.builder()
                 .id(saveUser.getId().toString())
                 .username(saveUser.getUsername())
