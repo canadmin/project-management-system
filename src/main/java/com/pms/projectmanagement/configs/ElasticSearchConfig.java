@@ -1,4 +1,4 @@
-package com.pms.projectmanagement.elasticsearch;
+package com.pms.projectmanagement.configs;
 
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;

@@ -1,4 +1,4 @@
-package com.pms.projectmanagement.notifications;
+package com.pms.projectmanagement.configs.websocket;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

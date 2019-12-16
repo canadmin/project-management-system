@@ -1,7 +1,6 @@
 package com.pms.projectmanagement.services.invite;
 
 import com.pms.projectmanagement.models.invite.Invitation;
-import com.pms.projectmanagement.notifications.Notification;
 import com.pms.projectmanagement.repositories.invite.InviteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -18,5 +17,10 @@ public class InvitationServiceImpl implements InvitationService {
     public void inviteDeveloper(String userId, String projectId) {
 
         inviteRepository.save(Invitation.builder().userId(userId).invitedToProjectId(projectId).build());
+    }
+
+    @Override
+    public Invitation getInvitation(String userId) {
+        return null;
     }
 }
