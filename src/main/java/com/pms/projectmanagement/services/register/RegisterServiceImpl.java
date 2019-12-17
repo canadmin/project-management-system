@@ -28,7 +28,6 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public void register(UserDto user) {
         User saveUser = modelMapper.map(user, User.class);
-        saveUser.setId(UUID.randomUUID());
         saveUser.setActiveGuide(UUID.randomUUID().toString());
    /* mailSenderService.sendMail(saveUser.getEmail(),
             saveUser.getActiveGuide(),saveUser.getUsername());*/
@@ -36,11 +35,12 @@ public class RegisterServiceImpl implements RegisterService {
         saveUser.setIsMailActive(false);
         saveUser.setPassword(new BCryptPasswordEncoder().encode(saveUser.getPassword()));
         saveUser.setFullName(saveUser.getFirstName()+ " "+ saveUser.getLastName());
+
+        User savedUser = userRepository.save(saveUser);
         UserES savedUserES =userServiceES.createNewUser(UserES.builder()
-                .id(saveUser.getId().toString())
-                .username(saveUser.getUsername())
+                .id(savedUser.getId().toString())
+                .username(savedUser.getUsername())
                 .build());
         System.out.println("user es = " + savedUserES);
-        userRepository.save(saveUser);
     }
 }

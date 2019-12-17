@@ -32,10 +32,6 @@ public class Project extends BaseEntity{
     private List<Task> tasks;
 
     private String githubRepoAddress;
-//
-//    public void addDeveloper(User user){
-//        developers.add(user);
-//        user.getProjects().add(this);
-//    }
+
 
 }
