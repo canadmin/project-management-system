@@ -1,4 +1,4 @@
-package com.pms.projectmanagement.services.notificationService;
+package com.pms.projectmanagement.elasticsearch.service.notificationService;
 
 import com.pms.projectmanagement.dtos.ProjectDto;
 import com.pms.projectmanagement.elasticsearch.model.UserES;
