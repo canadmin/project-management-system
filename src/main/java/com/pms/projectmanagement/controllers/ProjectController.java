@@ -5,6 +5,7 @@ import com.pms.projectmanagement.dtos.TaskDto;
 import com.pms.projectmanagement.dtos.UserDto;
 import com.pms.projectmanagement.elasticsearch.model.UserES;
 import com.pms.projectmanagement.elasticsearch.service.UserServiceES;
+import com.pms.projectmanagement.elasticsearch.service.notificationService.NotificationService;
 import com.pms.projectmanagement.services.project.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ public class ProjectController {
 
     private final ProjectService projectService;
     private final UserServiceES userServiceES;
+    private final NotificationService notificationService;
 
     @RequestMapping(value = "/createProject/{userId}", method = RequestMethod.POST)
     public String createProject(@ModelAttribute("project") ProjectDto projectDto,
@@ -64,5 +66,15 @@ public class ProjectController {
         return "project/developer/fragments/developerlist :: developerList";
     }
 
+    @RequestMapping(value = "/inviteDeveloper",method = RequestMethod.POST)
+    public String inviteDeveloper(@SessionAttribute("projectInfo") ProjectDto projectDto,
+                                  @SessionAttribute("user") UserDto userDto,
+                                  Model model,
+                                  @RequestParam(value = "userId",required = false) String userId){
+
+        notificationService.sendInviteNotification(userId,userDto.getFirstName(),projectDto); //send notifications (p to p)
+
+        return "redirect:/dashboard";
+    }
 
 }

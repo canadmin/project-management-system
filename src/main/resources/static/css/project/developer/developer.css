@@ -38,9 +38,9 @@
 .developer-tab{
     display: grid;
     padding: 15px;
-    grid-gap:100px;
+    grid-gap: 100px;
     height: 800px;
     width: 100%;
     grid-template-columns: repeat(5, 200px);
     overflow-y: auto
-    }
+}
