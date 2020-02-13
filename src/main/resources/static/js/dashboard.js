@@ -70,7 +70,6 @@ function showNotification(message) {
     $('#notification-alert').removeClass('close-modal');
     if (message.notificationType === 'INVITE') {
         $(".test").append("<a href='/showNotifications'> " + message.notificationMessage + " +  </a>");
-        $(".test").append("<p> " + message.notificationMessage + " +  </p>");
     } else {
         $(".test").append("<p>" + message.notificationMessage + "</p>");
     }

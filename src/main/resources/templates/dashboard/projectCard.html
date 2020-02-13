@@ -1,5 +1,5 @@
 <th:block th:fragment="content">
-    <div th:each="project: ${user.ownedProjects}">
+    <div th:each="project: ${user.projects}">
             <div class="project-card">
                 <div class="text-center">
                     Project name :<span class="task-text" th:text="${project.projectName}">Project Name</span></div>
