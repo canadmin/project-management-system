@@ -43,7 +43,7 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public List<Notification> showAllNotification(String userId) {
 
-        List<Notification> notifications = notificationRepository.findAllByReceiverId(userId);
+        List<Notification> notifications = notificationRepository.findAllByReceiverIdAndAvailableTrue(userId);
 
         return notifications;
     }

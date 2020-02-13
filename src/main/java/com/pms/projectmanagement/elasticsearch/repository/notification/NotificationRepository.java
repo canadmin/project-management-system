@@ -9,5 +9,5 @@ import java.util.UUID;
 
 public interface NotificationRepository extends ElasticsearchRepository<Notification, String> {
 
-    List<Notification> findAllByReceiverId(String receiverId);
+    List<Notification> findAllByReceiverIdAndAvailableTrue(String receiverId);
 }
