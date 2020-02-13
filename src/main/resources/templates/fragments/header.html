@@ -30,8 +30,14 @@
 
     <div class="notificaions text-center close-options">
         <form th:action="@{/showInvitation}" method="get">
-            <div class="test">
-            </div>
+            <th:block th:each="notification : ${notifications}">
+                <div class="test">
+                    <div>
+                        <a href='/showNotifications' th:text="${notification.notificationMessage}">canadmin</a>
+                    </div>
+                </div>
+            </th:block>
+
         </form>
 
     </div>

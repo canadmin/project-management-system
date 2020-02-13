@@ -6,12 +6,27 @@
     <meta charset="UTF-8">
     <title>Notification</title>
     <link rel="stylesheet" href="/css/project/notifications/notifications.css">
-
 </head>
 <body>
-<div class="container-fluid" layout:fragment="content">
+<div class="container" layout:fragment="content">
     <div class="all-notifications">
-
+        <th:block th:fragment="content">
+            <th:block th:each="notification : ${notification}">
+                <div class="notification-single-invite">
+                    <div class="">
+                        <h5 class="" th:text="${notification.notificationMessage}">
+                        </h5>
+                        <div  th:if="${notification.notificationType.name() == 'INVITE'}">
+                            <form  th:action="@{acceptInvitation/{path}(path=${notification.projectId})}"  th:object="${project}" method="post">
+                                <input type="hidden" th:name="id" th:value="${notification.id}">
+                                <input type="hidden" th:name="receiverId" th:value="${notification.receiverId}">
+                                <input type="submit" value="Join Project">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </th:block>
     </div>
 </div>
 </body>
