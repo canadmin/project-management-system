@@ -29,4 +29,5 @@ public class Notification {
     private String projectId;
     private Boolean isRead;
     private NotificationType notificationType;
+    private Boolean available;
 }

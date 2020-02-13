@@ -1,5 +1,6 @@
 package com.pms.projectmanagement.controllers;
 
+import com.pms.projectmanagement.dtos.ProjectDto;
 import com.pms.projectmanagement.dtos.UserDto;
 import com.pms.projectmanagement.elasticsearch.model.Notification;
 import com.pms.projectmanagement.elasticsearch.service.notificationService.NotificationService;
@@ -36,8 +37,9 @@ public class NotificationController {
                                    @PathVariable String projectId,
                                    @RequestParam(value = "id",required = true) String id,
                                    @RequestParam(value = "receiverId",required = true) String receiverId){
-        invitationService.joinProject(projectId,receiverId);
-        return "redirect:/dashboard";
+        ProjectDto projectDto = invitationService.joinProject(projectId,receiverId,id);
+
+        return "redirect:/showProject/"+projectDto.getId().toString();
 
     }
 

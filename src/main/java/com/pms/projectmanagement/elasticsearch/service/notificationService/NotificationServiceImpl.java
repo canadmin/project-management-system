@@ -33,6 +33,7 @@ public class NotificationServiceImpl implements NotificationService {
                 .notificationMessage(fromUser+" Invite your " +projectDto.getProjectName() + " project !!")
                 .receiverId(destinationUserId)
                 .isRead(false).projectId(projectDto.getId().toString())
+                .available(true)
                 .notificationType(NotificationType.INVITE)
                 .build();
         this.messagingTemplate.convertAndSendToUser(userES.get().getUsername(),"/notification/to/",notification);
@@ -42,7 +43,7 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public List<Notification> showAllNotification(String userId) {
 
-        List<Notification> notifications = notificationRepository.findAllByReceiverId(userId);
+        List<Notification> notifications = notificationRepository.findAllByReceiverIdAndAvailableTrue(userId);
 
         return notifications;
     }
