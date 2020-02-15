@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 <body>
-asdasd
+<th:block th:fragment="content">
+    <div class="task-info">
+        <div>
+            <button class="btn btn-primary">X</button>
+        </div>
+        <div class="text-center">
+            <p>Bug fix #22</p>
+            <hr>
+        </div>
+        <div class="task-detail-info">
+            <div class="text-center">
+                <p>Task description</p>
+                <hr class="w-50">
+                <p>Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen
+                    bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı
+                    1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır.
+                </p>
+                <hr>
+
+            </div>
+            <div>
+                <p>signed developer : canadmin </p>
+            </div>
+        </div>
+        <div class="task-comment">
+
+        </div>
+    </div>
+
+</th:block>
 </body>
 </html>
